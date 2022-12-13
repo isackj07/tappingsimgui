@@ -1,9 +1,9 @@
-getgenv().autoTap = true;
-getgenv().autoRebirth = true;
-getgenv().autoStarterEgg = true;
+getgenv().autoTap = true; --Global variable, getgenv() = get global environment
+getgenv().autoRebirth = true; --getngenv() is safer than _G
+getgenv().autoStarterEgg = true; --getgenv() is hidden from the game
 local remotePath = game:GetService("ReplicatedStorage").Events;
 
-for i, v in pairs(_G) do
+for i, v in pairs(_G) do -- for loop, loops the _G table
     print(i, v);
 end
 
