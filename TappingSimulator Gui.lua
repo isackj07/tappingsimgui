@@ -1,6 +1,6 @@
-_G.autoTap = true;
-_G.autoRebirth = true;
-_G.autoStarterEgg = true;
+getgenv().autoTap = true;
+getgenv().autoRebirth = true;
+getgenv().autoStarterEgg = true;
 local remotePath = game:GetService("ReplicatedStorage").Events;
 
 for i, v in pairs(_G) do
@@ -9,7 +9,7 @@ end
 
 
 spawn(function()
-    while _G.autoTap == true do
+    while autoTap == true do
         local A_1 = 1
         local Event = remotePath.Tap
         Event:FireServer(A_1)
@@ -18,7 +18,7 @@ spawn(function()
 end)
 
 spawn(function()
-    while _G.autoRebirth == true do
+    while autoRebirth == true do
         local A_1 = 1
         local Event = remotePath.Rebirth
         Event:FireServer(A_1)
@@ -27,7 +27,7 @@ spawn(function()
 end)
 
 spawn(function()
-    while _G.autoStarterEgg == true do
+    while autoStarterEgg == true do
         local args = { [1] = {}, [2] = "Starter", [3] = 1 } remotePath.HatchEgg:InvokeServer(unpack(args))
         wait()
     end
