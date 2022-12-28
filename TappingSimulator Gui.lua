@@ -1,7 +1,7 @@
 getgenv().autoTap = true; --Global variable, getgenv() = get global environment
 getgenv().autoRebirth = true; --getngenv() is safer than _G
 getgenv().autoEgg = true; --getgenv() is hidden from the game
-local remotePath = game:GetService("ReplicatedStorage").Events;
+local remotePath = game:GetService("ReplicatedStorage").Events; --cleaner code
 
 for i, v in pairs(_G) do -- for loop, loops the _G table
     print(i, v);
@@ -30,11 +30,14 @@ function autoRebirth(rebirthAmount)
 end
 
 
-function autoEgg(eggType)
+function autoEgg(eggType, eggLimit)
     spawn(function()
+        local iteration = 0
         while autoEgg == true do
             local args = { [1] = {}, [2] = eggType, [3] = 1 } remotePath.HatchEgg:InvokeServer(unpack(args))
             wait()
         end
     end)
 end
+
+autoEgg("Wood", 20);
